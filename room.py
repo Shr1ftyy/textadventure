@@ -9,7 +9,7 @@ class Room(object):
 
     name(string) - name of the room
     connections(list) - a list in the format: [["direction","room_name",True/False for lock]]
-    desc(string) - descritption when entering the room
+    desc(string) - description displayed when entering the room
     items(list) - items you can pick up in the room
     interactives(list) - interactive objects in the room
 
