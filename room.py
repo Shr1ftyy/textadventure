@@ -14,9 +14,22 @@ class Room(object):
     interactives(list) - interactive objects in the room
 
     """
-    def __init__(self, name, connections, desc, items, interactives):
-        self.name = name
+    def __init__(self, name, desc, connections=None, items=None, interactives=None):
+        if (isinstance(name, str)):
+            self.name = name
+        else:
+            raise TypeError("The datatype of the variable 'name' must be of type str\nFound: {type(name)}")
+
+        if (isinstance(desc, str)):
+            self.desc = desc
+        else:
+            raise TypeError(f"The datatype of the variable 'desc' must be of type str\nFound: {type(desc)}" )
+
         self.connections = connections
         self.desc = desc
         self.items = items
         self.interactives = interactives
+
+    def __getstate__(self):
+        attributes = self.__dict__.copy()
+        return attributes
