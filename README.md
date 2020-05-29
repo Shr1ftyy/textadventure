@@ -14,4 +14,15 @@ from room import Room
 from world import World
 ```
 
+To create a room instance, make use of the 'Room' object:
+```
+bedroom = Room(name='bedroom', desc='You are in your bedroom', connections=['west','hallway'], items=['flashlight','book'], interactives=['chest'])
+```
+A room contains the following attributes:
+    name(string) - name of the room
+    connections(list,dict,etc.) - connections of the room to other rooms, can be any suitable datatype
+    desc(string) - description displayed when entering the room
+    items(list) - items you can pick up in the room
+    interactives(list) - interactive objects in the room
+
 
