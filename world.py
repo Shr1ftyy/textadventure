@@ -16,7 +16,7 @@ class World():
     """
 
     def __init__(self):
-        self.rooms = []
+        self.rooms = {}
 
     # __getstate__ function for class serialization - called by pickle module
     def __getstate__(self):
@@ -41,7 +41,7 @@ class World():
                     "Found: " + str(type(r.desc)))
 
         else:
-            self.rooms.append(r)
+            self.rooms[r.name] = r
 
     def load(self, world='world.pickle'):
         self.rooms = pickle.load(open(str(world), 'rb'))
@@ -62,11 +62,11 @@ class World():
         if os.path.exists(dirname):
             cont = input(f"The save file {dirname} would you like to overwrite it? (y/n)").lower().strip()
             if cont =='y':
-                pickle.dump(self.rooms, open(dirname, 'wb'))
+                pickle.dump(self.rooms, open(dirname, 'wb+'))
                 print('done')
             else: 
                 pass
 
-        pickle.dump(self.rooms, open(dirname, 'wb'))
+        pickle.dump(self.rooms, open(dirname, 'wb+'))
 
         print('done')
