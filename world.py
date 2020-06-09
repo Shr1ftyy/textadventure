@@ -6,7 +6,7 @@ import pickle
 import json
 import room
 
-class World():
+class World(object):
     """
     This class creates a serializable model of a world for the user
 
